@@ -1,0 +1,140 @@
+
+<div class="ion-page">
+  <ion-content class="ion-padding ion-contentPrincipal" fixed >
+
+    <div >
+      <ion-fab vertical="center" horizontal="start" slot="fixed">
+        <ion-fab-button (click)="openWindowsJournal()"> 
+          <ion-icon name="arrow-forward-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+    </div>
+    
+  <ion-grid class="panelPrincipal ion-no-padding ion-no-margin" > 
+    <ion-row class="ion-no-padding ion-padding-top  botonesTop" >   
+      <ion-col class="ion-no-padding ion-padding-top" style="top:20px;">
+          <ion-button [disabled]="!this.Acumuladores.valid" class="BotonPagar"
+          expand="full" color="primary" (click)="openWindowsPayments()">
+            <span class="ion-text-left">PAGAR</span> 
+            <div *ngIf="flagMonedaLocal; else elseBlock4">
+              <span class="ion-text-right">{{this.Acumuladores.TOTAL|currencyFormat:'Bs':2:'.':',':3}}</span>
+            </div>
+            <ng-template #elseBlock4>
+              <span class="ion-text-right">{{this.Acumuladores.TOTAL/listadoTasas[0].monto_tasa|currencyFormat:simboloMonedaExtranjera.valor:2:'.':',':3}}</span>
+            </ng-template>
+          </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-justify-content-start ion-no-padding panelSecundario">
+      <!--Seccion de Journal-->
+
+     
+    
+     
+      
+      <ion-col  class="ion-no-padding ion-no-margin  ion-padding-top colDerecha">
+        <div class="PanelPrincipalIzquierdo">
+          <ion-content>
+            <ion-row class="PanelBotonesTop" >
+              
+              <ion-col size="8" class="ion-padding-bottom ion-padding-left">
+                <div class="grid-botonesTop">
+                    <ion-searchbar type="text" #searchInput class="inputSearch" placeholder="Articulo"
+                      [(ngModel)]="articuloBuscar"
+                      (ionChange)="buscarArticulos($event)" (keydown.enter)="vendeArticulo($event)"></ion-searchbar> 
+                </div>
+              </ion-col>
+              <ion-col size="3">
+                <div class="grid-botonesTop">
+
+                  <img src="/assets/img/scanner.png" alt="ImagenScanner" (click)="scanBarcode()" class="imgScanner">
+                </div>
+              </ion-col >
+              
+            </ion-row>
+            <!--Seccion de Body de Articulos-->
+            <ion-row class="PanelContenido">
+              <ion-col>
+                <mat-list>
+
+                  <div *ngIf="hideDpto; else showDpto">
+                    <!--ESTE BLOQUE ES PARA MOSTRAR LOS ARTICULOS-->
+                    <div class="estilocard " 
+                    *ngFor="let item of Articulos | filtroListArt: articuloBuscar">
+                      <ion-card class="ion-no-padding ionCard" (click)="insertarItem(item.id)">
+                        <ion-card-header class="ion-card-header" class="ion-no-padding">
+                          <ion-card-subtitle class="estiloLetrasTitle" >
+                            <div *ngIf="flagMonedaLocal; else elseBlock">
+                              <strong  class="content-b">
+                                {{item.price_bs|currencyFormat:'Bs':2:'.':',':3}} 
+                              </strong>
+                            </div>
+                            <ng-template #elseBlock>
+                              <strong  class="content-b">
+                                {{item.price_usd|currencyFormat:simboloMonedaExtranjera.valor:2:'.':',':3}}
+                              </strong>
+                            </ng-template>    
+                           
+                              <img class="img-articulos imagen-{{item.id}}" alt="ImagenArticulo"
+                              [src]='this.DomSanitizer.bypassSecurityTrustUrl(item.url_img)'>
+                               
+                             <div id="NombreTituloImg">
+                              <strong class="content-a">
+                                <span>
+                                  {{item.name_articulo}}
+                                </span>
+                              </strong>
+                            </div>
+                        </ion-card-subtitle>
+                        </ion-card-header>
+                      </ion-card>
+                    </div>
+                  </div>
+                 
+                </mat-list>
+                <div #div></div> <!--No borrar-->
+              </ion-col>
+            </ion-row>
+           
+           
+          </ion-content>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+
+ 
+</ion-content>
+
+<ion-toolbar >
+  <ion-footer fixed>
+    <div class="ion-text-center">
+      <ion-segment (ionChange)="functionsSales($event)" id="segmentFunction2">
+        <div *ngIf="isCustomerNoSelected; else customerSelected">
+          <ion-segment-button value="customer" >
+            <ion-label style="font-size: 8pt;">Cliente</ion-label>
+            <ion-icon name="person-outline" ></ion-icon>
+          </ion-segment-button>
+        </div>
+        <ng-template #customerSelected>
+          <ion-segment-button value="customer" >
+            <ion-label style="font-size: 8pt; color:green;">Cliente</ion-label>
+            <ion-icon name="person-outline" style="color:green;"></ion-icon>
+          </ion-segment-button>
+        </ng-template>  
+       
+  
+    
+        <ion-segment-button value="cancelSale" >
+          <ion-label style="font-size: 8pt;">Cancelar</ion-label>
+          <ion-icon name="close-circle-outline" ></ion-icon>
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </ion-footer>
+</ion-toolbar>
+
+
+
+  
+</div> 

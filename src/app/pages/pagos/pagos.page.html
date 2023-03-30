@@ -1,0 +1,104 @@
+<div class="ion-page">
+<ion-app>
+  <ion-header mode="md">
+    <ion-toolbar color="white">
+      <ion-grid>
+        <ion-row>
+          
+          <ion-col size="4" class="ion-text-center ion-padding-top">
+              <ion-label class="stylesIonItem icoPrint">
+                <!--<ion-icon slot="start" name='print' (click)="configPrinter()" [style.color]="myColor"></ion-icon>-->
+              </ion-label>
+          </ion-col>
+          <ion-col size="4" class="">
+            <!--<img src="../../assets/img/ImagenOriginalEditada.gif" class="img-haeder"/>-->
+            </ion-col>
+            <ion-col size="3" class="ion-text-center ion-padding-top">
+             
+            </ion-col>
+          <ion-col size="1" class="">
+            <ion-fab-button (click)="closeWindowsPayments()" color="danger" class="ion-fab-button-header"> 
+              <ion-icon name="close-outline" ></ion-icon>
+            </ion-fab-button>
+        </ion-col>
+        </ion-row>
+      </ion-grid> 
+      
+    </ion-toolbar> 
+  </ion-header>
+  <ion-content>
+    
+      <ion-grid  class="panelPrincipal">                            
+        <ion-row class="ion-no-padding ion-padding-top CustomRow">
+          <ion-col size="7" class="CustomCol ion-no-padding ion-no-margin ">
+            <p>
+              <span> Subtotal {{this.Acumuladores.SUBTOTAL|currencyFormat:'Bs':2:'.':',':3}}</span>
+            </p>
+          </ion-col>
+          <ion-col size="5" class="CustomCol ion-no-padding ion-no-margin ">
+            <p>
+              <span> Total (Bs) </span>
+            </p>
+          </ion-col>
+          <ion-col size="7" class="CustomCol ion-no-padding ion-no-margin ">
+            <p>
+              <span> {{this.Acumuladores.IVA|currencyFormat:'Bs':2:'.':',':3}}</span>
+            </p>
+          </ion-col>
+          
+          <ion-col size="5" class="CustomCol ion-no-padding ion-no-margin ">
+            <p>
+              <span>
+                {{this.Acumuladores.TOTAL|currencyFormat:'Bs':2:'.':',':3}}
+              </span>
+            </p>
+             
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col size="4" *ngFor="let payments of Payments"> 
+              <ion-card class="ion-no-padding ion-no-margin ionCard" id="{{payments.id}}"
+              (click)="MediaPayments(payments.id)">
+                <ion-card-header  class="ion-no-padding">
+                  <ion-card-title>
+                    <img [src]='payments.imagen'  class="img-pay">
+                  </ion-card-title>
+                </ion-card-header>
+                <ion-card-content color="primary"> 
+                 
+                    <b>{{payments.name_fpago}}</b>
+                  
+                </ion-card-content>
+              </ion-card>
+          </ion-col>
+          
+        </ion-row>
+        <form [formGroup]="mainForm" (ngSubmit)="pagar()">
+          <ion-row>
+              <ion-col size="8">
+                <ion-item>
+                  <ion-input formControlName="monto" placeholder="Monto a Pagar" type="tel" required
+                   (ionInput)="updateValue($event.target.value)" [(ngModel)]="this.valorConvertido"
+                  ></ion-input>
+                  <ion-icon name="cash"></ion-icon>
+                </ion-item>
+              </ion-col>
+          </ion-row>
+        </form>
+        <ion-row class="ion-no-padding ion-padding-top CustomRow textAlignCenter">
+          <ion-col size="12" class="CustomCol ion-no-padding ion-no-margin ">
+            <p >
+              <span> PAGADO: {{this.Pago.PAGADO|currencyFormat:'Bs':2:'.':',':3}}</span>
+            </p>
+          </ion-col>
+          <ion-col size="12" class="CustomCol ion-no-padding ion-no-margin ">
+            <p >
+              <span> RESTANTE {{this.Pago.RESTANTE|currencyFormat:'Bs':2:'.':',':3}}</span>
+            </p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-content>
+
+</ion-app>
+</div>

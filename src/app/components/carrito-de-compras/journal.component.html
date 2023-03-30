@@ -1,0 +1,155 @@
+<div *ngIf="this.cabecera">
+  <ion-header mode="md">
+    <ion-toolbar color="white">
+      <ion-grid>
+        <ion-row>
+          
+          <ion-col size="4" class="ion-text-center ion-padding-top ion-hide-sm-up">
+          </ion-col>
+          <ion-col size="4" class="">
+            <img src="../../assets/img/logo.png" class="img-haeder"/>
+            </ion-col>
+          <ion-col size="4" class="ion-text-center ion-padding-top ion-hide-sm-up">
+        </ion-col>
+        </ion-row>
+      </ion-grid> 
+      
+    </ion-toolbar> 
+    
+  </ion-header>
+  <ion-content>
+    
+      <ion-fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="closeWindowsJournal()"> 
+          <ion-icon name="arrow-back-outline"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+  </ion-content>
+</div>
+
+<div class="PanelListadeArticulos-matList">
+
+  <!--Cabecera-->
+  <!--<div class="ListaArticulosHeader">
+    <ion-row>
+      <ion-col size="2" class="ion-no-padding ion-no-margin">
+        <p class="AlineacionIzquierda estilosCabecereaLetras" >
+          <span> CANT. </span>
+        </p>
+      </ion-col>
+      <ion-col size="6" class="ion-no-padding ion-no-margin">
+        <p class="AlineacionIzquierda estilosCabecereaLetras" >
+          <span> DESCRIPCION </span>
+        </p>
+      </ion-col>
+      <ion-col size="4" class="ion-no-padding ion-no-margin ">
+        <p  class="estilosCabecereaLetras AlineacionDerecha" >
+          <span> PRECIO </span>
+        </p>
+      </ion-col>
+    </ion-row>
+  </div>  -->
+  <!--Fin de la Cabecera-->
+  <mat-accordion class="example-headers-align">
+    <div 
+    *ngFor="let itemJournal of Journal" class="div-container-matlist">
+      <mat-expansion-panel hideToggle 
+      [expanded]="itemJournal.expanded"
+      class="mat-expansion-panel-insideDiv">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+              <ion-row class="ListaArticulos">
+                <ion-row >
+                  <ion-col size="1" class="ion-no-padding ion-no-margin ">
+                   <!--<p class="AlineacionIzquierda">
+                      <span> {{itemJournal.cantidad}} </span>
+                    </p>-->
+                  </ion-col>
+                  <ion-col size="7" class="CustomCol ion-no-padding ion-padding-right ">
+                    <p  class="AlineacionIzquierda no-desbordar">
+                     {{itemJournal.item}} x {{itemJournal.cantidad}}
+                     <!-- {{ (itemJournal.item.length > 20) ? (itemJournal.item | slice:0:20)+'..':(itemJournal.item) }}-->
+                    </p>
+                  </ion-col>
+                  <ion-col size="4" class="CustomCol ion-no-padding">
+                    <div *ngIf="flagMonedaLocal; else elseBlock">
+                      <p  class="AlineacionDerecha no-desbordar">
+                        {{itemJournal["amtsold"]|currencyFormat:'Bs':2:'.':',':3}}
+                      </p>
+                    </div>
+                    <ng-template #elseBlock>
+                      {{itemJournal["amtsold"]/listadoTasas[0].monto_tasa|currencyFormat:simboloMonedaExtranjera.valor:2:'.':',':3}}
+                    </ng-template>
+                  </ion-col> 
+                </ion-row>
+              </ion-row>  
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+          
+            <div *ngIf="itemJournal.pesable; else elseBlock2">
+              <ion-row class="ion-no-padding">
+                <ion-col class="ion-no-padding" size="2">
+                  <ion-button size="small"
+                  (click)="moodifyQty(itemJournal.cantidad,'minus',itemJournal.trans,itemJournal.line)"> 
+                    <ion-icon slot="icon-only" name="remove"></ion-icon></ion-button>
+                </ion-col>
+                <ion-col class="ion-no-padding" size="2">
+                  <ion-input disabled id="inputQty" class="inputQty" value="{{itemJournal.cantidad}}"
+                  > </ion-input>
+                </ion-col>
+                <ion-col class="ion-no-padding" size="2">
+                  <ion-button  size="small"
+                  (click)="moodifyQty(itemJournal.cantidad,'more',itemJournal.trans,itemJournal.line)">
+                    <ion-icon slot="icon-only" name="duplicate" ></ion-icon> </ion-button>
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col class="ion-no-padding" size="2">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col class="ion-no-padding" size="2">
+                  <ion-button size="small" color="danger"
+                  (click)="deleteItem(itemJournal.trans,itemJournal.line)">
+                    <ion-icon slot="icon-only" name="trash" ></ion-icon> </ion-button>
+                </ion-col>
+              </ion-row>
+              
+              <!--Aqui terminan los botones de +/- -->
+            </div>
+            <ng-template #elseBlock2>
+              <ion-row class="ion-no-padding">
+                <ion-col class="ion-no-padding" size="2">
+                  <ion-button size="small" disabled
+                  > 
+                    <ion-icon slot="icon-only" name="remove"></ion-icon></ion-button>
+                </ion-col>
+                <ion-col class="ion-no-padding" size="2">
+                  <ion-input disabled id="inputQty" class="inputQty" disabled
+                  > </ion-input>
+                </ion-col>
+                <ion-col class="ion-no-padding" size="2">
+                  <ion-button  size="small"
+                  disabled>
+                    <ion-icon slot="icon-only" name="duplicate" ></ion-icon> </ion-button>
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col class="ion-no-padding" size="2">
+                </ion-col>
+                <ion-col size="1">
+                </ion-col>
+                <ion-col class="ion-no-padding" size="2">
+                  <ion-button size="small" color="danger"
+                  (click)="deleteItem(itemJournal.trans,itemJournal.line)">
+                    <ion-icon slot="icon-only" name="trash" ></ion-icon> </ion-button>
+                </ion-col>
+              </ion-row>
+                
+            </ng-template>  
+        
+           
+      </mat-expansion-panel>
+    </div>
+  </mat-accordion>
+</div>

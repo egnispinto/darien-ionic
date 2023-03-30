@@ -1,0 +1,107 @@
+.new-background-color{
+    --background: #3880ff;
+}
+.img-haeder{
+    /*display:inline-block;*/
+    position: relative;
+    width: 150px;
+    height: 20px;
+   // float: inline-start; 
+    top:6px;
+    left: 10%;
+}
+   .panelPrincipal{
+    background: #ffffff;
+    height: 100%;
+  }
+  .CustomRow{
+      background: #b1afaf;
+      font-size: 15px;
+      font-family: Arial;
+      text-align: center;
+      color:#ffffff;
+  }
+  .ico-title{
+    height: 3em;
+    width: 4em;
+    position: relative;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  ion-card-content{
+    background-color:rgba(17, 117, 199, 0.76);
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  b{
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13pt;
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap;
+    display: inherit;
+  }
+  p span{
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 13pt;
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap;
+    display: inherit;
+  }
+  .textAlignLeft{
+      text-align: left;
+  }
+  .textAlignCenter{
+    text-align: center;
+}
+  .ion-fab-button-header{
+      height: 30px;
+      width: 30px;
+  }
+
+  ::ng-deep.my-custom-class p{
+      text-align: center;
+  }
+  .my-custom-img{
+    height:130px;
+    margin-left: 20%; 
+}   
+  ::ng-deep.my-custom-img{
+    height:130px;
+    margin-left: 20%; 
+}
+.img-pay{
+  height: 3em;
+  width: 4em;
+  position: relative;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}   
+/*
+::ng-deep.alert-button{
+    color:#ffffff !important;
+    background-color: #3880ff !important;
+    width: 49%;
+}
+::ng-deep.alert-button-inner{
+    display:block !important;
+    text-align: center;
+}*/
+/*Esto esta en formas de pago*/
+::ng-deep.my-custom-class-pagos.alert-wrapper.sc-ion-alert-md{ 
+  --width:600px !important;
+  --height:200px !important;
+}
+::ng-deep.my-custom-class-pagos.alert-title{
+  font-size: 30px !important;
+}
+::ng-deep.my-custom-class-pagos.alert-message{
+  font-size: 25px !important;
+}

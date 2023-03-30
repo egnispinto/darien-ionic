@@ -1,0 +1,77 @@
+
+<ion-menu side="start" menuId="first" menu-id='first' content-id="main" auto-hide="true">
+  <ion-header>
+    <ion-toolbar color="white">
+      <img src="../../assets/img/logo.png" class="img-haeder2"/>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      
+      <ion-menu-toggle [autoHide]="true">
+        <!-- Botton 1-->
+        <ion-item button [routerLink]="['/']">
+          <ion-icon slot="start" name='desktop' style="color:green;"></ion-icon>
+          <ion-label >
+            Ventas
+          </ion-label>
+        </ion-item>
+        
+       
+      </ion-menu-toggle>
+      
+      
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+
+  <ion-header>
+    <ion-toolbar color="white">
+      <ion-buttons slot="start">
+        <ion-menu-toggle>
+          <ion-button class="button_menu" > 
+            <ion-icon slot="icon-only" name="menu" color="dark" class="formaRedonda"></ion-icon>
+          </ion-button>
+        </ion-menu-toggle>
+      </ion-buttons>
+      <ion-grid>
+
+        <!--Esta parte es una restructuración de la vista-->
+        <!--Vista 1 modo Tablet-->
+        <ion-row  class="ion-hide-sm-down">
+          <ion-col size="2" class="ion-text-center ion-padding-top ion-hide-sm-down">
+            <ion-label class="stylesIonItem">  
+            </ion-label>
+          </ion-col>
+           <!--Esta etiqueta es igual en las 2 Vistas, de optimizarla es necesario optimizar la otra tambien-->
+           <ion-col size="6" class=""> 
+            <img src="../../assets/img/logo.png" (click)="mostrarcompilacion()" class="img-haeder"/>
+          </ion-col>
+          <ion-col size="2" class="ion-text-center ion-padding-top ion-hide-sm-down">    
+          </ion-col>
+          <ion-col size="2" class="ion-text-center ion-padding-top ion-hide-sm-down">
+            
+          </ion-col>
+         
+        </ion-row>
+        <!--Vista 2 modo smartphone-->
+        <ion-row  class="ion-hide-sm-up">
+            <ion-col size="3" class="ion-text-center ion-padding-top ion-hide-sm-up">  
+          </ion-col> 
+          <!--Esta etiqueta es igual en las 2 Vistas, de optimizarla es necesario optimizar la otra tambien-->
+          <ion-col size="6" class=""> 
+            <img src="../../assets/img/logo.png" (click)="mostrarcompilacion()" class="img-haeder"/>
+          </ion-col>
+          <ion-col size="3" class="ion-text-center ion-padding-top ion-hide-sm-up">
+           
+          </ion-col>
+        </ion-row>
+        
+      </ion-grid> 
+      
+    </ion-toolbar> 
+    
+  </ion-header>
+

@@ -1,0 +1,49 @@
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: ms-appdata: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+<ion-header mode="md">
+  <ion-toolbar color="dark">
+    <ion-grid>
+      <ion-row>
+        
+        <ion-col size="4" class="ion-text-center ion-padding-top ion-hide-sm-up">
+        </ion-col>
+        <ion-col size="4" class="">
+          <img src="../../assets/img/ImagenOriginalEditada.gif" class="img-haeder"/>
+          </ion-col>
+        <ion-col size="4" class="ion-text-center ion-padding-top ion-hide-sm-up">
+      </ion-col>
+      </ion-row>
+    </ion-grid> 
+    
+  </ion-toolbar> 
+  
+</ion-header>
+<ion-content>
+  
+    <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button (click)="closeWindows()"> 
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  <div class="listImg">
+    <ion-row>
+      <ion-col size="4" *ngFor="let img of fotos">
+        <ion-item>
+         <!-- <img class="img-articulos" (click)="seleccionarImagen(img.fullPath)" src='{{img.fullPath}}'>-->
+         <img class="img-articulos" (click)="seleccionarImagen(img.fullPath)" 
+         [src]='this.DomSanitizer.bypassSecurityTrustUrl(img.data)'>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </div>
+    <ion-toolbar >
+      <ion-footer>
+        <ion-button (click)="AccessGallery()">
+          <p>Galeria</p>
+        </ion-button> 
+       
+      </ion-footer>
+    </ion-toolbar>
+    
+  
+</ion-content>

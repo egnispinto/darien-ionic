@@ -1,0 +1,30 @@
+.new-background-color{
+    --background: #3880ff;
+}
+.img-haeder{
+    /*display:inline-block;*/
+    position: relative;
+    width: 150px;
+    height: 20px;
+   // float: inline-start; 
+    top:6px;
+    left: 10%;
+}
+.AlineacionDerecha{
+    text-align: right;
+    margin: 0 0 3px;
+    padding-right: 15px;
+  }
+  .AlineacionIzquierda{
+    text-align: left;
+    margin: 0 0 0px;
+    padding-left: 15px;
+  }
+  .img-articulos{
+    height: 8em;
+    width: 15em;
+}
+.listImg{
+  height: 90%;
+  overflow: auto;
+}

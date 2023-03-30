@@ -1,0 +1,108 @@
+/*.new-background-color{
+    --background: --ion-color-danger; //RGB: r56 : V: 128 A : 255
+}*/
+ion-toolbar{
+    --background: #1d5cca;
+}
+ion-header,ion-toolbar{
+    --min-height: 60px;
+}
+ion-grid, ion-row, ion-col{
+    padding: 0px;
+}
+
+.stylesIonItem{
+    color:#ffffff;
+    font-family: Arial;
+    font-size: 11pt;
+    position: relative;
+}
+.icono_impresora{
+position: relative;
+top:15px;
+font-size: 30px;
+}
+.stylesIonPrint{
+    color:#d42a2a;
+    font-family: Arial;
+    font-size: 11pt;
+    position: relative;
+}
+.new-content-background-color{
+    --background: #f5f8f8;
+}
+.ion-padding{
+    --padding-top:1px;
+}
+.text-title-app{
+    color:  #ffffff;
+}
+.text-app{
+    color:  #ffffff;
+}
+@media (min-width: 576px) {
+    .img-haeder{
+        position: relative;
+        display:flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300;
+        height: 65px;
+        top:4px;
+        left: 10%;
+    }
+    .img-haeder2{
+        /*display:inline-block;*/
+        position: relative;
+        width: 200px;
+        height: 50px;
+       // float: inline-start; 
+        top:4px;
+        left: 10%;
+    }
+}
+@media (max-width: 575.98px) {
+    .img-haeder{
+        position: relative;
+        display:flex;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        height: 65px;
+        top:10px;
+        left: 10%;
+    }
+    .img-haeder2{
+        /*display:inline-block;*/
+        position: relative;
+        width: 200px;
+        height: 50px;
+       // float: inline-start; 
+        top:10px;
+        left: 10%;
+    }
+}
+#icoPrinter{
+    top:10px; 
+}
+.button_menu{
+    height: 60px !important;
+    width: 60px !important;
+    position: relative;
+    left: auto;
+    right: auto;
+}
+.formaRedonda{
+    /* cambia estos dos valores para definir el tamaño de tu círculo */
+    border-radius: 50%;
+    position: relative;
+    font-size: 4em !important;
+}
+
+.align-right{
+    float: right;
+}
+
+.listMenu{ 
+    font-size: 14px;
+}

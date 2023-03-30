@@ -1,0 +1,97 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import '~@ionic/angular/css/display.css';
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+
+/*
+ion-content{
+    --ion-background-color:#faf0f0;
+}*/
+//Estilos usados en las opciones internas de cada menu de la app
+.content-label{
+    --inner-border-width: 1px 1px 1px 0;
+    margin-bottom: 10px;
+}
+.icon{
+    background :#3880ff;
+    height : 100%;
+    width: 40px;
+}
+.icon-icono{
+    height: 3em;
+    width: 2em;
+    color: white;
+    margin-left:4px;
+}
+.label{
+    margin-left: 20px;
+    color:#808183;
+    font-family: Arial, Helvetica, sans-serif !important;
+}
+.parrafo{
+    font-size: 17px !important;
+}
+.no-desbordar{
+    text-overflow: ellipsis; 
+    overflow: hidden; 
+    white-space: nowrap;
+    display: inherit;
+  }
+
+  //Estilos de cards de las maestras de data
+  .buttonAdd{
+    margin-bottom: 80px;
+}
+.button-card-content{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.cardData{
+    top:15px;
+}
+.card-header{
+    background: #3880ff;
+    color: #ffffff;
+}
+
+.contentPrincipal{
+    height: 90%;
+    overflow: auto;
+}
+
+/*
+La siguiente etiqueta se habia puesto en un principio para que la modal de las formas de pago
+quedara mas grande, sin embargo eso traia como consecuencia que la modal de las devoluciones
+se desproporciora, por eso se quito, se deja como referencia ya que en un comienzo el 
+requerimiento de la modal super grande en FP fue de Luis Gazcon.
+*/
+/*
+.sc-ion-modal-md-h {
+    --width: 800px;
+    --height: 700px;
+}*/
+

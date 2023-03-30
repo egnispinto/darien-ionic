@@ -1,0 +1,37 @@
+<div class="ion-page">
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col class="ion-no-padding ion-no-margin ion-padding-top">
+          <ion-list>
+            <ion-item *ngFor="let menu of Menu" class="ion-no-padding content-label">
+              <div class="icon">
+                <ion-icon name="{{menu.ico}}" class=" icon-icono"> </ion-icon>
+              </div>
+              <ion-label class=" label"
+              [routerLink]="[menu.routerLink]">
+                <span class="">
+                  <p class="parrafo">{{menu.name}}</p>
+                </span></ion-label>
+            </ion-item>
+            <!--La agrego manual porque esta opcion debe levantar es una ventana modal-->
+            <ion-item class="ion-no-padding content-label">
+              <div class="icon">
+                <ion-icon name="receipt-outline" class=" icon-icono"> </ion-icon>
+              </div>
+              <ion-label class=" label"
+              (click)="ModalFecha()" >
+                <span class="">
+                  <p class="parrafo">Log de impresión</p>
+                </span></ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+      
+    </ion-grid>
+  </ion-content>
+</div>
+
+
+
